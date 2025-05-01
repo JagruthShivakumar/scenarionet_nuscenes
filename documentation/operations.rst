@@ -162,6 +162,55 @@ However, Lyft is now a part of Woven Planet and the new data has to be parsed vi
 We are working on support this new toolkit to support the new Lyft dataset.
 Detailed guide is available at Section :ref:`nuscenes`.
 
+Convert VoD 
+------------------------------------
+
+.. code-block:: text
+
+    python -m scenarionet.convert_vod [-h] [--database_path DATABASE_PATH]
+                      [--dataset_name DATASET_NAME]
+                      [--split
+    {v1.0-trainval,v1.0-test,train,train_val,val,test}]
+                      [--dataroot DATAROOT] [--map_radius MAP_RADIUS]
+                      [--future FUTURE] [--past PAST] [--overwrite]
+                      [--num_workers NUM_WORKERS]
+
+    Build database from VOD scenarios
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      --database_path DATABASE_PATH, -d DATABASE_PATH
+                            directory, The path to place the data
+      --dataset_name DATASET_NAME, -n DATASET_NAME
+                            Dataset name, will be used to generate scenario files
+      --split 
+        {v1.0-trainval,v1.0-test,train,train_val,val,test}
+                            Which splits of VOD data should be used. If set to 
+                            ['v1.0-trainval', 'v1.0-test'], it will
+                            convert the full log into scenarios with 20 second episode
+                            length. If set to ['train', 'train_val', 'val', 'test'],
+                            it will convert segments used for VOD prediction challenge
+                            to scenarios, resulting in more converted scenarios.
+                            Generally, you should choose this parameter from 
+                            ['v1.0-trainval', 'v1.0-test'] to get complete
+                            scenarios for planning unless you want to use the
+                            converted scenario files for prediction task.
+      --dataroot DATAROOT   The path of vod data
+      --map_radius MAP_RADIUS The size of map
+      --future FUTURE       3 seconds by default. How many future seconds to
+                            predict. Only available if split is chosen from 
+                            ['train', 'train_val', 'val', 'test']
+      --past PAST           0.5 seconds by default. How many past seconds are
+                            used for prediction. Only available if split is
+                            chosen from ['train', 'train_val', 'val', 'test']
+      --overwrite           If the database_path exists, whether to overwrite it
+      --num_workers NUM_WORKERS number of workers to use
+
+
+This script converts the View-of-Delft Prediction (VoD) dataset into our scenario descriptions.
+You will need to install ``vod-devkit`` and download the source data from https://intelligent-vehicles.org/datasets/view-of-delft/.
+Detailed guide is available at Section :ref:`vod`.
+
 Convert PG
 -------------------------
 

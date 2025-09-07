@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ScenarioNet
 
 [![Documentation Status](https://readthedocs.org/projects/scenarionet/badge/?version=latest)](https://scenarionet.readthedocs.io/en/latest/?badge=latest)
@@ -83,3 +84,7 @@ If you used this project in your research, please cite:
   year={2023}
 }
 ```
+=======
+# scenarionet_nuscenes
+Scenario extraction pipeline for NuScenes using ScenarioNet. Includes actor activity tagging, actor–environment and actor–actor interactions, and scenario categorization (e.g., crossings, turns). Supports visualization and future replay in MetaDrive and CARLA for AV safety assessment.
+>>>>>>> 226e4949b2a1a1c5e91d94663e8e41a7ef4ad06f
